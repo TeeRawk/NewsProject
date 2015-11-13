@@ -1,7 +1,7 @@
 package com.technical.saion.newsapp.ui.activity;
 
-import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.support.v7.app.AppCompatActivity;
 
 import com.technical.saion.newsapp.R;
 import com.technical.saion.newsapp.ui.fragment.MainFragment;
@@ -12,9 +12,9 @@ public class MainActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-        MainFragment fragment=new MainFragment();
+        MainFragment fragment = new MainFragment();
 
 
-        getSupportFragmentManager().beginTransaction().replace(R.id.activity_main_container,fragment).commit();
+        getSupportFragmentManager().beginTransaction().replace(R.id.activity_main_container, fragment).commit();
     }
 }

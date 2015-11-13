@@ -70,8 +70,7 @@ public class NewsProvider extends ContentProvider {
         String table = getType(uri);
         if (TextUtils.isEmpty(table)) {
             throw new UnsupportedOperationException("No such table to query");
-        }
-        else {
+        } else {
             long id = database.insertWithOnConflict(table, null, contentValues, SQLiteDatabase.CONFLICT_REPLACE);
             return ContentUris.withAppendedId(uri, id);
         }
@@ -83,7 +82,7 @@ public class NewsProvider extends ContentProvider {
         String table = getType(uri);
         if (TextUtils.isEmpty(table)) {
             throw new UnsupportedOperationException("No such table to query");
-        }else {
+        } else {
             int numInserted = 0;
             database.beginTransaction();
             try {
@@ -94,8 +93,7 @@ public class NewsProvider extends ContentProvider {
                     }
                 }
                 database.setTransactionSuccessful();
-            }
-            finally {
+            } finally {
                 database.endTransaction();
             }
             return numInserted;
@@ -108,12 +106,10 @@ public class NewsProvider extends ContentProvider {
         String table = getType(uri);
         if (TextUtils.isEmpty(table)) {
             throw new UnsupportedOperationException("No such table to query");
-        }
-        else {
+        } else {
             return database.delete(table, s, strings);
         }
     }
-
 
 
     @Override
@@ -122,8 +118,7 @@ public class NewsProvider extends ContentProvider {
         String table = getType(uri);
         if (TextUtils.isEmpty(table)) {
             throw new UnsupportedOperationException("No such table to query");
-        }
-        else {
+        } else {
             return database.update(table, contentValues, s, strings);
         }
     }

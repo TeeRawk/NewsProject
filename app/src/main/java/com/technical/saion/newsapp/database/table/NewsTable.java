@@ -17,21 +17,18 @@ import java.util.List;
  */
 public class NewsTable {
 
-    public final static Uri URI= Constants.BASE_CONTENT_URI.buildUpon().appendPath(Requests.TABLE_NAME).build();
+    public final static Uri URI = Constants.BASE_CONTENT_URI.buildUpon().appendPath(Requests.TABLE_NAME).build();
 
-    public static void save (Context context,@NonNull List<NewsItem> newsItems)
-    {
-        ContentValues[] values=new ContentValues[newsItems.size()];
-        for (int i=0;i<newsItems.size();i++)
-        {
-            values[i]=toContentValues(newsItems.get(i));
+    public static void save(Context context, @NonNull List<NewsItem> newsItems) {
+        ContentValues[] values = new ContentValues[newsItems.size()];
+        for (int i = 0; i < newsItems.size(); i++) {
+            values[i] = toContentValues(newsItems.get(i));
         }
-        context.getContentResolver().bulkInsert(URI,values);
+        context.getContentResolver().bulkInsert(URI, values);
     }
 
     @NonNull
-    public static ContentValues toContentValues(@NonNull NewsItem newsItem)
-    {
+    public static ContentValues toContentValues(@NonNull NewsItem newsItem) {
         ContentValues values = new ContentValues();
         values.put(Columns.TITLE, newsItem.getTitle());
         values.put(Columns.DATE, newsItem.getDate());
@@ -41,14 +38,13 @@ public class NewsTable {
         return values;
     }
 
-    public static NewsItem fromCursor(Cursor cursor)
-    {
+    public static NewsItem fromCursor(Cursor cursor) {
         String title = cursor.getString(cursor.getColumnIndex(Columns.TITLE));
         String imageLink = cursor.getString(cursor.getColumnIndex(Columns.LINK));
         String desc = cursor.getString(cursor.getColumnIndex(Columns.DESC));
         String date = cursor.getString(cursor.getColumnIndex(Columns.DATE));
         String web = cursor.getString(cursor.getColumnIndex(Columns.WEB));
-        return new NewsItem(title,desc, date,imageLink,web);
+        return new NewsItem(title, desc, date, imageLink, web);
     }
 
     @NonNull
@@ -76,7 +72,7 @@ public class NewsTable {
         String LINK = "link";
         String DESC = "desc";
         String DATE = "date";
-        String WEB="web";
+        String WEB = "web";
     }
 
 

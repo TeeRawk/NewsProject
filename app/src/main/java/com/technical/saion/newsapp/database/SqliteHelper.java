@@ -19,6 +19,7 @@ public class SqliteHelper extends SQLiteOpenHelper {
     }
 
     private static final int DATABASE_VERSION = 4;
+
     @Override
     public void onCreate(SQLiteDatabase db) {
         db.execSQL(NewsTable.Requests.CREATION_REQUEST);

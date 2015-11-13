@@ -29,9 +29,9 @@ public class NewsRecyclerAdapter extends RecyclerView.Adapter<NewsRecyclerAdapte
     private static final String EXTRA_CUSTOM_TABS_TOOLBAR_COLOR = "android.support.customtabs.extra.TOOLBAR_COLOR";
     private Context mContext;
 
-    public NewsRecyclerAdapter(Context context,ArrayList<NewsItem> newsItems)
-    {   this.mContext=context;
-        this.mNewsItems=newsItems;
+    public NewsRecyclerAdapter(Context context, ArrayList<NewsItem> newsItems) {
+        this.mContext = context;
+        this.mNewsItems = newsItems;
 
     }
 
@@ -43,14 +43,13 @@ public class NewsRecyclerAdapter extends RecyclerView.Adapter<NewsRecyclerAdapte
     }
 
     @Override
-    public void onBindViewHolder(MainViewHolder holder,  int position) {
-        final NewsItem newsItem=mNewsItems.get(position);
+    public void onBindViewHolder(MainViewHolder holder, int position) {
+        final NewsItem newsItem = mNewsItems.get(position);
         holder.title.setText(newsItem.getTitle());
         holder.date.setText(newsItem.getDate());
         holder.description.setText(newsItem.getDesc());
 
-        if(!"null".equals(newsItem.getImageLink()))
-        {
+        if (!"null".equals(newsItem.getImageLink())) {
             Picasso.with(mContext).load(newsItem.getImageLink()).into(holder.image);
         }
         holder.container.setOnClickListener(new View.OnClickListener() {
@@ -61,13 +60,12 @@ public class NewsRecyclerAdapter extends RecyclerView.Adapter<NewsRecyclerAdapte
                 Intent intent = new Intent(Intent.ACTION_VIEW, Uri.parse(url));
                 Bundle extras = new Bundle();
                 extras.putBinder(EXTRA_CUSTOM_TABS_SESSION,
-                       null );
+                        null);
                 intent.putExtra(EXTRA_CUSTOM_TABS_TOOLBAR_COLOR, mContext.getResources().getColor(R.color.colorPrimary));
                 intent.putExtras(extras);
-                mContext.startActivity(intent,extras);
+                mContext.startActivity(intent, extras);
             }
         });
-
 
 
     }
@@ -89,11 +87,11 @@ public class NewsRecyclerAdapter extends RecyclerView.Adapter<NewsRecyclerAdapte
         public MainViewHolder(View itemView) {
             super(itemView);
 
-            title =(TextView)itemView.findViewById(R.id.recycler_view_item_title);
-            image =(ImageView)itemView.findViewById(R.id.recycler_view_item_image);
-            description =(TextView)itemView.findViewById(R.id.recycler_view_item_desc);
-            date=(TextView) itemView.findViewById(R.id.recycler_view_item_date);
-            container=(CardView) itemView.findViewById(R.id.recycler_view_item_card);
+            title = (TextView) itemView.findViewById(R.id.recycler_view_item_title);
+            image = (ImageView) itemView.findViewById(R.id.recycler_view_item_image);
+            description = (TextView) itemView.findViewById(R.id.recycler_view_item_desc);
+            date = (TextView) itemView.findViewById(R.id.recycler_view_item_date);
+            container = (CardView) itemView.findViewById(R.id.recycler_view_item_card);
         }
 
     }

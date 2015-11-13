@@ -32,23 +32,24 @@ public class NewsItem {
             this.imageLink = imageLink;
         }
     }
+
     @SerializedName("Image")
     private Image mImage;
 
     public NewsItem() {
-        this.title="No Title";
-        mImage=null;
-        this.desc="No description";
-        this.date="No date";
+        this.title = "No Title";
+        mImage = null;
+        this.desc = "No description";
+        this.date = "No date";
 
     }
 
-    public NewsItem(String title, String desc, String date, String imageLink,String webURL) {
+    public NewsItem(String title, String desc, String date, String imageLink, String webURL) {
         this.title = title;
-        mImage =new Image(imageLink) ;
+        mImage = new Image(imageLink);
         this.desc = desc;
         this.date = date;
-        this.webURL=webURL;
+        this.webURL = webURL;
     }
 
     public String getTitle() {

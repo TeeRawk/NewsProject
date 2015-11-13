@@ -13,17 +13,17 @@ import retrofit.Retrofit;
  */
 public class ApiFactory {
 
-    private static final String BASE_URL ="http://timesofindia.indiatimes.com";
+    private static final String BASE_URL = "http://timesofindia.indiatimes.com";
 
-    private static final OkHttpClient CLIENT=new OkHttpClient();
+    private static final OkHttpClient CLIENT = new OkHttpClient();
 
     @NonNull
-    public static NewsService getNewsService()
-    {return getRetrofit().create(NewsService.class);}
+    public static NewsService getNewsService() {
+        return getRetrofit().create(NewsService.class);
+    }
 
-    private static Retrofit getRetrofit()
-    {
-        Retrofit retrofit=new Retrofit.Builder()
+    private static Retrofit getRetrofit() {
+        Retrofit retrofit = new Retrofit.Builder()
                 .baseUrl(BASE_URL)
                 .addConverterFactory(GsonConverterFactory.create())
                 .client(CLIENT)
